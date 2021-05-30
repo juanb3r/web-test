@@ -1,0 +1,42 @@
+{% extends "layout.html"%}
+
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Bienvenido a Vallenatearte.</h1>
+        {% if session['username'] %}
+        <h3>Toquemos ese arcodeón.</h3>
+        {% endif%}
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <img src="https://www.elheraldo.co/sites/default/files/articulo/2019/02/09/alejo5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <p class="card-text">Gilberto Alejandro Durán Díaz (El Paso, Magdalena Grande, 9 de febrero de 1919-Montería, 15 de noviembre de 1989), conocido como Alejandro Durán y apodado el negro Alejo, fue un acordeonero, compositor y cantante colombiano de vallenato. En 1968 ganó el concurso de acordeoneros del primer Festival de la Leyenda Vallenata, convirtiéndose así en el primer Rey Vallenato.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://larazon.co/wp-content/uploads/2014/09/Enrique_D-1132x670.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <p class="card-text">Enrique Díaz Tovar (María La Baja, Bolívar; 3 de abril de 1945 - Montería, 18 de septiembre de 2014) fue un cantautor, acordeonero, compositor de folclor vallenato y música sabanera, es conocido como el "Tigre de María La Baja", fue uno de los pocos juglares vallenatos de Colombia, de quien se decía que tenía un parecido en el tono de su voz con el ya fallecido rey vallenato Alejandro Durán.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if session['username'] %}
+        <p><a href="{{url_for('logout')}}">Logout</a></p>
+        {% else %}
+        <p>No estás registrado? <a href="{{url_for('login')}}">Login</a></p>
+        {% endif%}
+    </div>
+</div>
+{% endblock %}
+
+
+
+

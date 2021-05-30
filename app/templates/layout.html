@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vallenatearte - Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/main.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container-fluid text-center top-container">
+        <img src="static/images/uta-logo-200.png">
+</div>
+
+<div class="container-fluid">
+
+    {% include "includes/nav.html" %}
+
+    {% if session['username'] %}
+        <span class= user>Bienvenido, {{ session['username'] }}</span>
+    {% endif %}
+
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for category, message in messages%}
+                <div class="alert alert-{{category}}" role="alert">
+                {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content%}
+    {% endblock %}
+
+</div>
+
+{% include "includes/footer.html" %}
+
+</body>
+
+
+</html>

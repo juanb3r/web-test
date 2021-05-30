@@ -1,0 +1,49 @@
+
+{% extends "layout.html"%}
+
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>{{ title }}</h1>
+
+        {% if not courses %}
+            <h2>No estás inscrito en ningun curso:</h2>
+        {% else %}
+            <h2>Estás inscrito en:</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Credits</th>
+                    <th scope="col">Term</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for course in courses%}
+                <!-- Construct the rest of courses here -->
+                <tr>
+                    <td scope='row'>{{course.r2['course_id']}}</td>
+                    <td>{{course.r2['title']}}</td>
+                    <td>{{course.r2['description']}}</td>
+                    <td>{{course.r2['credits']}}</td>
+                    <td>{{course.r2['term']}}</td>
+                </tr>
+                {% endfor%}
+                </tbody>
+            </table>
+        {% endif %}
+        <a class="btn btn-primary" href="{{url_for('courses')}}">Regresar</a>
+    </div>
+
+
+</div>
+{% endblock %}
+
+
+
+
